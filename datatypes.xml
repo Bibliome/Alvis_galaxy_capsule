@@ -1,0 +1,18 @@
+<datatypes> 
+  <registration>  
+	<!-- format specific to alvisnlp at MAiAGE/Bibliome-->
+   <datatype extension="trie" type="galaxy.datatypes.binary:Trie" display_in_upload="True" mimetype="application/octet-stream" description="A alvisnlp binary format used to contain dictionary" />
+   <datatype extension="plan" type="galaxy.datatypes.xml:Plan" display_in_upload="True" description="A alvisnlp binary format used to contain plan" />
+  </registration>
+<sniffers>
+    <!--
+    The order in which Galaxy attempts to determine data types is
+    important because some formats are much more loosely defined
+    than others.  The following list should be the most rigidly
+    defined format first, followed by next-most rigidly defined,
+    and so on.
+    -->
+    <sniffer type="galaxy.datatypes.binary:Trie"/> <!-- added for alvisnlp -->
+    <sniffer type="galaxy.datatypes.xml:Plan"/> <!-- added for alvisnlp -->
+</sniffers>
+</datatypes>

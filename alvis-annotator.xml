@@ -1,0 +1,32 @@
+<!--
+    alvisnlp
+    -verbose
+    -noColors
+    -param search subject word -param lemmatize active false  ## deactivate lemmatization
+    -param search subject plain  ## search inside words (deactivates lemmatization)
+    -param search subject prefix ## search at the beginning of words (deactivates lemmatization)
+    -param remove-overlaps active true ## longest only
+    -param lemmatize treeTaggerExecutable /home/rbossy/dist/tree-tagger/bin/tree-tagger
+    -param parFile /home/rbossy/dist/tree-tagger/english-par-linux-3.2.bin
+    -param write fileName "out.txt"
+    -param search dictFile dictionary-lemma.txt
+    -param search trieSource dictionary-lemma.trie
+    alvis-annotator.plan
+-->
+<tool id="alvis-annotator" name="alvis-annotator" version="XXX Tool Version">
+   <description>XXX Tool Description</description>
+   <command interpreter="python">alvis-annotator.py -input ${input} -dict ${dict} -output ${output}</command>
+   <inputs>
+      <param format="txt" name="input" type="data" label="input" help="A corpus file" />
+      <param format="txt" name="dict" type="data" label="dict" help="A dictionary" />
+   </inputs>
+   <outputs>
+      <data name="output" format="trie" help="The result" />
+   </outputs>
+  <tests>
+	<test>
+	</test>
+ </tests>
+<help>
+</help>
+</tool>

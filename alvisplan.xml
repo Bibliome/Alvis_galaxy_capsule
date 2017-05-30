@@ -1,0 +1,34 @@
+<tool id="alvisplan" name="AlvisPlan" version="0.0.1">
+  <description>AlvisNLP/ML</description>
+  <command interpreter="python">
+    alvisplan.py 
+      $input
+      #for $op in $operations
+       '${op.optype}
+        ${op.value}'
+      #end for
+  </command>
+  <inputs>
+    <param format="plan,xml,txt" name="input" type="data" label="Select plan" help="The plan to execute"/>
+
+  <param name="mystring" type="text" label="Say something interesting">
+    <sanitizer invalid_char="">
+      <valid initial="string.letters,string.digits"><add value="_" /> </valid>
+    </sanitizer>
+  </param>
+
+    <repeat name="operations" title="Plan parameters">
+      <param name="parameter" label="Parameter" type="text" />
+      <param name="value" label="Value" type="text" />
+    </repeat>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="out_file1" />
+  </outputs>
+  <tests>
+	<test>
+	</test>
+ </tests>
+<help>
+</help>
+</tool>
